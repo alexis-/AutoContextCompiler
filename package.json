@@ -3,8 +3,24 @@
   "displayName": "Auto Context Compiler",
   "description": "VS Code extension for tagging and compiling workspace files content",
   "version": "0.0.1",
+  "publisher": "alexis-",
+  "license": "MIT",
+  "author": {
+    "name": "Alexis"
+  },
+  "keywords": [
+    "vscode",
+    "compiler",
+    "context",
+    "file-content",
+    "tagging"
+  ],
   "engines": {
     "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexis-/AutoContextCompiler.git"
   },
   "categories": [
     "Other"
@@ -59,6 +75,8 @@
     "ts-loader": "^9.5.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "html-loader": "^4.2.0",
+    "copy-webpack-plugin": "^11.0.0"
   }
 }

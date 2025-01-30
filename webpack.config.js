@@ -3,6 +3,7 @@
 'use strict';
 
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //@ts-check
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
@@ -22,7 +23,7 @@ const extensionConfig = {
     vscode: 'commonjs vscode'
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.html', '.ts', '.js']
   },
   module: {
     rules: [
@@ -34,9 +35,27 @@ const extensionConfig = {
             loader: 'ts-loader'
           }
         ]
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: ['html-loader']
       }
     ]
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/webview',
+          to: 'webview',
+          globOptions: {
+            ignore: ['**/.DS_Store']
+          }
+        }
+      ]
+    })
+  ],
   devtool: 'nosources-source-map',
   infrastructureLogging: {
     level: "log",

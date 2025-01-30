@@ -158,8 +158,8 @@ export class AutoContextEditorProvider implements vscode.CustomTextEditorProvide
     }
 
     private async getHtmlForWebview(webview: vscode.Webview): Promise<string> {
-        const htmlPath = vscode.Uri.joinPath(this.context.extensionUri, 'src', 'webview', 'editor.html');
-        const jsPath = vscode.Uri.joinPath(this.context.extensionUri, 'src', 'webview', 'editor.js');
+        const htmlPath = vscode.Uri.joinPath(this.context.extensionUri, 'dist', 'webview', 'editor.html');
+        const jsPath = vscode.Uri.joinPath(this.context.extensionUri, 'dist', 'webview', 'editor.js');
         
         const htmlContent = (await fs.promises.readFile(htmlPath.fsPath)).toString();
         const jsContent = (await fs.promises.readFile(jsPath.fsPath)).toString();
